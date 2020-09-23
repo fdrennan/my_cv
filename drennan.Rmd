@@ -1,0 +1,97 @@
+---
+name: Freddy Ray Drennan
+address: "812 Cameron Drive, Severance, CO 80550"
+phone: +1 254 931 8313
+email: "drennanfreddy@gmail.com"
+twitter: fdrennan
+github: fdrennan
+linkedin: freddydrennan
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: "000088"
+output: vitae::awesomecv
+header_includes:
+  - \ExecuteBibliographyOptions{useprefix=true}
+  - renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(vitae)
+source("baretable.R")
+```
+## Education and Qualifications
+```{r degrees, results='asis'}
+tribble(
+  ~Start, ~End, ~Degree, ~Institution,
+  2014, 2017, "BBA Quantitative Finance with Minor in Math",  "The University of Texas at Austin",
+  2007, 2008, "Licensed Practical Nurse - Compact State License",   "Army Medical Department Center \\& Schools",
+  2006, 2007, "EMT - Combat Medical Technician", "Army Medical Department Center \\& Schools"
+) %>% 
+  # as.data.frame 
+  arrange(-Start) %>% 
+  filter(Start > 2000) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  mutate(Separator = "") %>% 
+  select(Years, Degree, Separator, Institution) %>% 
+  baretable()
+```
+## Employment History
+```{r employment, results='asis'}
+tribble(
+  ~Start, ~End, ~Position, ~Achievement,
+  2007, 2008, "\\textbf{Military ICU Nurse}, Darnall Army Medical Center", "\\textit{Treated 1000+ critically ill patients}",
+  2008, 2010, "\\textbf{Trauma Nurse}, 555th Forward Surgical Team", "\\textit{War zone trauma nurse in Kunar, Afghanistan}",
+  2010, 2016, "\\textbf{Pediatric / ICU Nurse}, Pediatric Services of America", "\\textit{Improved outcomes for pediatric seizure patients}",
+  2016, 2017, "\\textbf{Student Mentor}, University of Texas at Austin", "\\textit{Taught R programming}",
+  #2017, NA,   "\\textbf{Pediatric Nurse}, Aveanna Healthcare",  "\\textit{Post-NICU home nurse}",
+  2017, 2018, "\\textbf{Data Optimization Engineer}, Digital First Media", "\\textit{Maintainer of Quantum R Package}",
+  2018,2020,   "\\textbf{Data Scientist}, Digital First Media", "\\textit{Increased profit by \\$2M with linear programming}",
+  2019,NA,   "\\textbf{Business Analytics Manager}, Logisticare", "\\textit{Showed predictability in overcharges 90+ days out}",
+  
+) %>%
+  arrange(-Start) %>%
+  #filter(Start > 2000) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Position, Achievement) %>%
+  baretable()
+```
+
+## Projects/Responsibilities
+* __[NDEXReddit Platform](http://ndexr.com)__
+    * Lead developer and creator of a Reddit analytics platform using AWS, Python, R, and Docker - __[Repo Here](https://github.com/fdrennan/ndexr-platform)__
+    * Aggregates all submissions to Reddit for bad-actor analysis using Airflow and Postgres
+    * Working in coordination with __[Social Forensics](https://www.socialforensics.com/)__ to cross-correlate misinformation on Twitter and Reddit
+* __Logisticare Auto-Assignment__
+    * Formulated mixed-integer program (MIP) to match riders with transportation providers
+    * Structured model to run off a containerized, load-balanced, R API
+    * Provides improved and up-to-date transportation recommendations 
+* __Overrides Classification__
+    * A $300K/day problem with high class imbalance and regional variance requiring a multi-model approach
+    * Predicted 80%+ of the positive class using clever feature engineering
+    * Allowed Logisticare to begin determining problematic transportation providers to renegotiate contracts
+* [__Omni-Channel Advertising Optimization__](http://drenr.com/pages/html_files/advertisingOptimization.html)
+    * A solo data scientist on a team with four front-end developers
+    * Decreased campaign management time from one hour to five minutes per campaign
+    * Developed unified and coordinated optimization processes between Adwords, Facebook, and TTD
+    * Integrated campaign management linking between Salesforce, Data Warehouse and Quantum platform
+* __Adtaxi Mathematics System Administrator__
+    * Maintained production servers and administration for the Quantum backend
+    * Managed users, software upgrades, deployment, and applications on production servers. 
+    * Built an R API framework which prevented the need for RSConnect and resulted in $50K/year savings
+* __QuantumR Package__
+    * Manages search budget pacing - forces advertising campaigns to spend evenly over a given period
+    * Optimizes single-channel Trade Desk / Facebook Campaigns - boosts conversions per dollar
+    * Implemented Continuous Integration / Unit Testing 
+* [__Building A Highly Scalable Load Balanced R API__](https://www.youtube.com/watch?v=RlFbg_c87Jg&t=2s) 
+    * Uses Docker Compose and NGINX to route traffic from an entrypoint to various endpoints
+* [__Creating Index Funds Using Integer Programming and Stratified Samples__](http://drenr.com/pages/html_files/indexFundComplete.html)
+    * Given a sample of $n$ stocks, selects $k$ stocks to represent the whole
+* [__Distributed Machine Learning by Hand with R and Caret__](https://www.youtube.com/watch?v=Yp1bko0Zd7E)
+    * Built EC2 servers to send ML data to AWS and run 40+ models in parallel
+    * The entire ML framework was developed by myself
+    * Shows familiarity and comfort leading/developing machine learning models 
+    
+    
