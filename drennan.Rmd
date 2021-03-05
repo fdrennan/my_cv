@@ -48,7 +48,10 @@ tribble(
   #2017, NA,   "\\textbf{Pediatric Nurse}, Aveanna Healthcare",  "\\textit{Post-NICU home nurse}",
   2017, 2018, "\\textbf{Data Optimization Engineer}, Digital First Media", "\\textit{Maintainer of Quantum R Package}",
   2018,2020,   "\\textbf{Data Scientist}, Digital First Media", "\\textit{Increased profit by \\$2M with linear programming}",
-  2019,NA,   "\\textbf{Business Analytics Manager}, Logisticare", "\\textit{Showed predictability in overcharges 90+ days out}",
+  2019,2020,   "\\textbf{Business Analytics Manager}, Logisticare", "\\textit{Showed predictability in overcharges 90+ days out}",
+    2020, NA,  "\\textbf{Senior R Programming Consultant}, BioMarin", "\\textit{Built Centralized Statistical Monitoring Solution}",
+  2020, NA,  "\\textbf{Founder}, ndexr.com", "\\textit{A Khan Academy for R Programmers}"
+
   
 ) %>%
   arrange(-Start) %>%
@@ -57,13 +60,20 @@ tribble(
   mutate(Years = paste(Start, "--", End, sep = "")) %>%
   select(Years, Position, Achievement) %>%
   baretable()
+
+# __[Repo Here](https://github.com/fdrennan/ndexr-platform)__
 ```
 
 ## Projects/Responsibilities
-* __[NDEXReddit Platform](http://ndexr.com)__
-    * Lead developer and creator of a Reddit analytics platform using AWS, Python, R, and Docker - __[Repo Here](https://github.com/fdrennan/ndexr-platform)__
-    * Aggregates all submissions to Reddit for bad-actor analysis using Airflow and Postgres
-    * Working in coordination with __[Social Forensics](https://www.socialforensics.com/)__ to cross-correlate misinformation on Twitter and Reddit
+* __Centralized Statistical Monitoring__
+    * Lead developer for implementing an R/Shiny back-end to test data integrity for research trials
+    * Worked with the head bio-statistican to create a plugin system for incorporation of new analyses
+    * shinydashboard as package, tested using shinytest, rselenium. Developed with golem (usethis of Shiny)
+    * `csm` package fortified with travis, testthat, vignettes. Documented with roxygen2
+* __[ndexr.com](http://ndexr.com)__
+    * Lead developer and creator of a Reddit analytics platform using AWS, Plumber, and Shiny
+    * Converted infrastructure into an e-learning platform, where I teach R in production systems. 
+    * Shiny app developed with shinydashboard, golem , elasticsearchr. 
 * __Logisticare Auto-Assignment__
     * Formulated mixed-integer program (MIP) to match riders with transportation providers
     * Structured model to run off a containerized, load-balanced, R API
@@ -85,10 +95,6 @@ tribble(
     * Manages search budget pacing - forces advertising campaigns to spend evenly over a given period
     * Optimizes single-channel Trade Desk / Facebook Campaigns - boosts conversions per dollar
     * Implemented Continuous Integration / Unit Testing 
-* [__Building A Highly Scalable Load Balanced R API__](https://www.youtube.com/watch?v=RlFbg_c87Jg&t=2s) 
-    * Uses Docker Compose and NGINX to route traffic from an entrypoint to various endpoints
-* [__Creating Index Funds Using Integer Programming and Stratified Samples__](http://drenr.com/pages/html_files/indexFundComplete.html)
-    * Given a sample of $n$ stocks, selects $k$ stocks to represent the whole
 * [__Distributed Machine Learning by Hand with R and Caret__](https://www.youtube.com/watch?v=Yp1bko0Zd7E)
     * Built EC2 servers to send ML data to AWS and run 40+ models in parallel
     * The entire ML framework was developed by myself
